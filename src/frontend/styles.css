@@ -1,0 +1,23 @@
+html {}
+
+body {}
+
+header {}
+header > #burger {}
+header > #burger.open {}
+header > #profile {}
+/* TODO: create transition here */
+header > #profile.open {}
+
+footer {}
+
+#view {}
+#view > div {}
+
+.text {}
+
+.code {}
+.code > textarea {}
+.code > pre > code {
+  tab-size: 4;
+}
