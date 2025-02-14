@@ -4,22 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>SysDesigner</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="res/prism.css">
+  <link rel="stylesheet" href="res/styles.css">
 </head>
 <body>
+  <!-- not firefox rendering the page before the styles -->
+  <script>var FOUC;</script>
+  <script src="res/prism.js" defer></script>
+  <script src="res/index.js" defer></script>
   <header>
-    <div id="burger">[=]</div>
-    SysDesigner
-    <div id="profile">(O)</div>
+    <div id="burger">[=]</div> SysDesigner <div id="profile">(O)</div>
   </header>
   <div id="view">
     <div class="text">
       <p>Hello, world!</p>
     </div>
     <div class="code">
-      <textarea>fun main() {}</textarea>
-      <pre><code>fun main() {}</code></pre>
+      <textarea
+        class="code-input"
+        spellcheck="false"
+        onkeydown="window.onCodeInput(this, event)"
+        oninput="window.updateCodeOutput(this, this.value); window.syncCodeScroll(this);"
+        onscroll="window.syncCodeScroll(this);"
+      ></textarea>
+      <pre aria-hidden="true"><code class="code-output language-kotlin">...</code></pre>
     </div>
   </div>
   <footer>

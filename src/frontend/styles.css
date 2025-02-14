@@ -1,8 +1,18 @@
+:root {
+  --code-font: monospace;
+}
+
 html {}
 
-body {}
+body {
+  color: white;
+  background-color: rgb(25, 26, 41);
+}
 
-header {}
+header {
+  border-radius: 2px;
+  border-color: black;
+}
 header > #burger {}
 header > #burger.open {}
 header > #profile {}
@@ -16,8 +26,41 @@ footer {}
 
 .text {}
 
-.code {}
-.code > textarea {}
-.code > pre > code {
+.code-input, pre > .code-output {
+  margin: 10px;
+  padding: 10px;
+}
+.code-input, .code-output {
   tab-size: 4;
+  border: 0;
+  width: calc(90% - 20px);
+  height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  white-space: pre;
+}
+.code-input:focus {
+  outline: none;
+  border: 0;
+}
+.code-input, .code-output, .code-output * {
+  font-family: var(--code-font);
+  font-size: 13pt;
+  line-height: 15pt;
+}
+.code-output, .code-output * {
+  margin: 0;
+  padding: 0;
+}
+.code-input {
+  resize: none;
+  color: rgba(255, 255, 255, 0.3);
+  background: transparent;
+  caret-color: white;
+  z-index: 1;
+}
+.code-output {
+  z-index: 0;
 }
